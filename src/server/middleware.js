@@ -35,12 +35,13 @@ export default function (configDir) {
   middlewareFn(router);
 
   router.get('/', function (req, res) {
-    res.send(getIndexHtml({ publicPath }));
+    const headHtml = getHeadHtml(configDir, 'head.html');
+    res.send(getIndexHtml({ headHtml, publicPath }));
   });
 
   router.get('/iframe.html', function (req, res) {
-    const headHtml = getHeadHtml(configDir);
-    res.send(getIframeHtml({ headHtml, publicPath }));
+    const frameHtml = getHeadHtml(configDir, 'frame.html');
+    res.send(getIframeHtml({ frameHtml, publicPath }));
   });
 
   return router;

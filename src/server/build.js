@@ -85,9 +85,10 @@ webpack(config).run(function (err, stats) {
     publicPath: config.output.publicPath,
     assets: stats.toJson().assetsByChunkName,
   };
-  const headHtml = getHeadHtml(configDir);
+  const headHtml = getHeadHtml(configDir, 'head.html');
+  const frameHtml = getHeadHtml(configDir, 'frame.html');
 
   // Write both the storybook UI and IFRAME HTML files to destination path.
-  fs.writeFileSync(path.resolve(outputDir, 'index.html'), getIndexHtml(data));
-  fs.writeFileSync(path.resolve(outputDir, 'iframe.html'), getIframeHtml({ ...data, headHtml }));
+  fs.writeFileSync(path.resolve(outputDir, 'index.html'), getIndexHtml(data, headHtml));
+  fs.writeFileSync(path.resolve(outputDir, 'iframe.html'), getIframeHtml({ ...data, frameHtml }));
 });

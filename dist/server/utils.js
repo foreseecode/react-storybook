@@ -27,8 +27,8 @@ function parseList(str) {
   return str.split(',');
 }
 
-function getHeadHtml(configDirPath) {
-  var headHtmlPath = _path2.default.resolve(configDirPath, 'head.html');
+function getHeadHtml(configDirPath, file) {
+  var headHtmlPath = _path2.default.resolve(configDirPath, file);
   var headHtml = '';
   if (_fs2.default.existsSync(headHtmlPath)) {
     headHtml = _fs2.default.readFileSync(headHtmlPath, 'utf8');

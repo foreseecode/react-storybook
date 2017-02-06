@@ -5,8 +5,8 @@ export function parseList(str) {
   return str.split(',');
 }
 
-export function getHeadHtml(configDirPath) {
-  const headHtmlPath = path.resolve(configDirPath, 'head.html');
+export function getHeadHtml(configDirPath, file) {
+  const headHtmlPath = path.resolve(configDirPath, file);
   let headHtml = '';
   if (fs.existsSync(headHtmlPath)) {
     headHtml = fs.readFileSync(headHtmlPath, 'utf8');

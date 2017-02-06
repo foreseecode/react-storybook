@@ -28,7 +28,7 @@ const previewUrlsFromAssets = (assets) => {
 };
 
 export default function (data) {
-  const { assets, headHtml, publicPath } = data;
+  const { assets, frameHtml, publicPath } = data;
 
   const previewUrls = previewUrlsFromAssets(assets);
 
@@ -49,7 +49,7 @@ export default function (data) {
           }
         </script>
         <title>React Storybook</title>
-        ${headHtml}
+        ${frameHtml}
         ${previewCssTag}
       </head>
       <body>

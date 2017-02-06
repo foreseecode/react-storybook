@@ -114,9 +114,10 @@ logger.log('Building storybook ...');
     publicPath: config.output.publicPath,
     assets: stats.toJson().assetsByChunkName
   };
-  var headHtml = (0, _utils.getHeadHtml)(configDir);
+  var headHtml = (0, _utils.getHeadHtml)(configDir, 'head.html');
+  var frameHtml = (0, _utils.getHeadHtml)(configDir, 'frame.html');
 
   // Write both the storybook UI and IFRAME HTML files to destination path.
-  _fs2.default.writeFileSync(_path2.default.resolve(outputDir, 'index.html'), (0, _index2.default)(data));
-  _fs2.default.writeFileSync(_path2.default.resolve(outputDir, 'iframe.html'), (0, _iframe2.default)((0, _extends3.default)({}, data, { headHtml: headHtml })));
+  _fs2.default.writeFileSync(_path2.default.resolve(outputDir, 'index.html'), (0, _index2.default)(data, headHtml));
+  _fs2.default.writeFileSync(_path2.default.resolve(outputDir, 'iframe.html'), (0, _iframe2.default)((0, _extends3.default)({}, data, { frameHtml: frameHtml })));
 });

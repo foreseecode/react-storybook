@@ -31,12 +31,13 @@ exports.default = function (configDir) {
   middlewareFn(router);
 
   router.get('/', function (req, res) {
-    res.send((0, _index2.default)({ publicPath: publicPath }));
+    var headHtml = (0, _utils.getHeadHtml)(configDir, 'head.html');
+    res.send((0, _index2.default)({ headHtml: headHtml, publicPath: publicPath }));
   });
 
   router.get('/iframe.html', function (req, res) {
-    var headHtml = (0, _utils.getHeadHtml)(configDir);
-    res.send((0, _iframe2.default)({ headHtml: headHtml, publicPath: publicPath }));
+    var frameHtml = (0, _utils.getHeadHtml)(configDir, 'frame.html');
+    res.send((0, _iframe2.default)({ frameHtml: frameHtml, publicPath: publicPath }));
   });
 
   return router;

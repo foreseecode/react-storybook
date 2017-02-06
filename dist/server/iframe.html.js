@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function (data) {
   var assets = data.assets,
-      headHtml = data.headHtml,
+      frameHtml = data.frameHtml,
       publicPath = data.publicPath;
 
 
@@ -17,7 +17,7 @@ exports.default = function (data) {
     previewCssTag = '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + _url2.default.resolve(publicPath, previewUrls.css) + '\'>';
   }
 
-  return '\n    <!DOCTYPE html>\n    <html>\n      <head>\n        <meta charset="utf-8">\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n        <script>\n          if (window.parent !== window) {\n            window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;\n          }\n        </script>\n        <title>React Storybook</title>\n        ' + headHtml + '\n        ' + previewCssTag + '\n      </head>\n      <body>\n        <div id="root"></div>\n        <div id="error-display"></div>\n        <script src="' + _url2.default.resolve(publicPath, previewUrls.js) + '"></script>\n      </body>\n    </html>\n  ';
+  return '\n    <!DOCTYPE html>\n    <html>\n      <head>\n        <meta charset="utf-8">\n        <meta name="viewport" content="width=device-width, initial-scale=1">\n        <script>\n          if (window.parent !== window) {\n            window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;\n          }\n        </script>\n        <title>React Storybook</title>\n        ' + frameHtml + '\n        ' + previewCssTag + '\n      </head>\n      <body>\n        <div id="root"></div>\n        <div id="error-display"></div>\n        <script src="' + _url2.default.resolve(publicPath, previewUrls.js) + '"></script>\n      </body>\n    </html>\n  ';
 };
 
 var _url = require('url');
